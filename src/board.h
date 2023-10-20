@@ -1,3 +1,5 @@
+#ifndef BOARD_H
+
 #include "common.h"
 #include "vertex.h"
 
@@ -15,8 +17,17 @@ public:
 *	A simple board like a hive / table / triangle
 */
 class SimpleBoard : public Board {
+public:
 	int numOfEdges;
 	int edgeSize;
 
 	SimpleBoard(int edgeSize, int numOfEdges);
 };
+
+SimpleBoard& GenerateSimpleBoard(int** simpleBoardArr, int numOfEdges, int edgeSize);
+void PrintBoard(SimpleBoard& board);
+
+
+#endif // !BOARD_H
+
+

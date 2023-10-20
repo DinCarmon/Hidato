@@ -18,3 +18,9 @@ int calculateBoardSize(int edgeSize, int numOfEdges = 6)
 	}
 	return 0;
 }
+
+void printStr(const char* str, int count)
+{
+	for (int i = 0; i < count; i++)
+		std::cout << str;
+}
