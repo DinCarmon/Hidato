@@ -79,8 +79,10 @@ SimpleBoard& GenerateSimpleBoard(int** simpleBoardArr, int numOfEdges, int edgeS
 					{
 						if (i < edgeSize)
 						{
-							v.CreateNeighbors(board.boardVertices[board.numOfVerticesInBoard - (edgeSize + i + 1)], 5, 2);
-							v.CreateNeighbors(board.boardVertices[board.numOfVerticesInBoard - (edgeSize + i)], 0, 3);
+							if(j > 0)
+								v.CreateNeighbors(board.boardVertices[board.numOfVerticesInBoard - (edgeSize + i + 1)], 5, 2);
+							if(j < edgeSize + i - 1)
+								v.CreateNeighbors(board.boardVertices[board.numOfVerticesInBoard - (edgeSize + i)], 0, 3);
 						}
 						else
 						{
@@ -160,6 +162,79 @@ void PrintBoard(SimpleBoard& board)
 		}
 		case 6:
 		{
+			int idx = 0;
+			for (int i = 0; i < board.edgeSize; i++)
+			{
+				printStr(" ", 3 * (board.edgeSize - i - 1) + 3);
+				printStr("^     ", board.edgeSize + i);
+				std::cout << std::endl;
+
+				printStr(" ", 3 * (board.edgeSize - i - 1) + 2);
+				printStr("/ \\   ", board.edgeSize + i);
+				std::cout << std::endl;
+
+				printStr(" ", 3 * (board.edgeSize - i - 1) + 1);
+				printStr("/   \\ ", board.edgeSize + i);
+				std::cout << std::endl;
+
+				printStr(" ", 3 * (board.edgeSize - i - 1));
+				printStr("|     ", board.edgeSize + i);
+				std::cout << "|" << std::endl;
+
+				printStr(" ", 3 * (board.edgeSize - i - 1));
+				for (int j = 0; j < board.edgeSize + i; j++)
+				{
+					std::cout << "|  " << board.boardVertices[idx]->num << "  ";
+					idx++;
+				}
+				std::cout << "|" << std::endl;
+
+			}
+			for (int i = 0; i < board.edgeSize - 1; i++)
+			{
+				printStr(" ", 3 * i);
+				std::cout << "|";
+				printStr("     ^", 2 * board.edgeSize - 2 - i);
+				std::cout << "     |" << std::endl;
+
+				printStr(" ", 3 * i);
+				printStr(" \\   /", 2 * board.edgeSize - 1 - i);
+				std::cout << std::endl;
+
+				printStr(" ", 3 * i);
+				printStr("  \\ / ", 2 * board.edgeSize - 1 - i);
+				std::cout << std::endl;
+
+				printStr(" ", 3 * i);
+				printStr("   |  ", 2 * board.edgeSize - 1 - i);
+				std::cout << std::endl;
+
+				printStr(" ", 3 * (i + 1));
+				for (int j = 0; j < 2 * board.edgeSize - 2 - i; j++)
+				{
+					std::cout << "|  " << board.boardVertices[idx]->num << "  ";
+					idx++;
+				}
+				std::cout << "|" << std::endl;
+
+			}
+
+			printStr(" ", 3 * (board.edgeSize - 1));
+			std::cout << "|";
+			printStr("     ^", board.edgeSize - 1);
+			std::cout << "     |" << std::endl;
+
+			printStr(" ", 3 * (board.edgeSize - 1));
+			printStr(" \\   /", board.edgeSize);
+			std::cout << std::endl;
+
+			printStr(" ", 3 * (board.edgeSize - 1));
+			printStr("  \\ / ", board.edgeSize);
+			std::cout << std::endl;
+
+			printStr(" ", 3 * (board.edgeSize - 1));
+			printStr("   |  ", board.edgeSize);
+			std::cout << std::endl;
 			break;
 		}
 		default:

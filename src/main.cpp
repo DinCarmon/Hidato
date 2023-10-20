@@ -16,5 +16,13 @@ int main()
     int* board2Arr[] = { b1, b2, b3 };
     SimpleBoard& board2 = GenerateSimpleBoard(board2Arr, 3, 3);
     PrintBoard(board2);
+    int c1[] = { 1, 2, 3 };
+    int c2[] = { 1, 2, 3, 4 };
+    int c3[] = { 1, 2, 3, 4, 5, 6 };
+    int c4[] = { 1, 2, 3, 4 };
+    int c5[] = { 1, 2, 3 };
+    int* board3Arr[] = { c1, c2, c3, c4, c5 };
+    SimpleBoard& board3 = GenerateSimpleBoard(board3Arr, 6, 3);
+    PrintBoard(board3);
 
 }
