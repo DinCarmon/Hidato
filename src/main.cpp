@@ -1,5 +1,6 @@
 #include "common.h"
 #include "board.h"
+#include "imageProcessing.h"
 
 int main()
 {
@@ -24,5 +25,8 @@ int main()
     int* board3Arr[] = { c1, c2, c3, c4, c5 };
     SimpleBoard& board3 = GenerateSimpleBoard(board3Arr, 6, 3);
     PrintBoard(board3);
+
+    char str[] = "C:\\Users\\dinca\\Documents\\Hidato\\src\\BlankHexagon.png";
+    readAndDisplay(str);
 
 }
